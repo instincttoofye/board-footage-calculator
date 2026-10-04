@@ -16,44 +16,56 @@ struct Calculator: View {
     @State private var inventoryItems: [InventoryItem] = []
     @State private var showInventory: Bool = false
     
-   var body: some View {
-       VStack {
-           Text("Thickness")
-           TextField("Enter thickness (inches)", value: $thickness, format: .number)
-           Text("Length")
-           TextField("Enter length (inches)", value: $length, format: .number)
-           Text("Width")
-           TextField("Enter width (inches)", value: $width, format: .number)
-           Text("Enter Species")
-           TextField("Enter Species", text: $species)
-           Text("Total Board Footage: \(result, specifier: "%.2f")")
-           Button("Calculate") {
-               Task {
-                   await calculate()
-               }
-           }
-           Button("Show Inventory") {
-               Task {
-                   await inventory()
-               }
-           }
-           if showInventory {
-               VStack {
-                   Text("Inventory")
-
-                   ForEach(inventoryItems) { item in
-                       HStack {
-                           Text(item.species)
-
-                           Spacer()
-
-                           Text("\(item.boardFeet, specifier: "%.2f") Board Feet")
-                       }
-                   }
-               }
-           }
-       }
-        
+    var body: some View {
+        ZStack {
+            LinearGradient(
+                colors: [
+                    Color(hex: 0x084719),
+                    Color(hex: 0x0a0e0d)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
+            VStack {
+                Text("Thickness")
+                TextField("Enter thickness (inches)", value: $thickness, format: .number)
+                Text("Length")
+                TextField("Enter length (inches)", value: $length, format: .number)
+                Text("Width")
+                TextField("Enter width (inches)", value: $width, format: .number)
+                Text("Enter Species")
+                TextField("Enter Species", text: $species)
+                Text("Total Board Footage: \(result, specifier: "%.2f")")
+                Button("Calculate") {
+                    Task {
+                        await calculate()
+                    }
+                }
+                Button("Show Inventory") {
+                    Task {
+                        await inventory()
+                    }
+                }
+                if showInventory {
+                    VStack {
+                        Text("Inventory")
+                        
+                        ForEach(inventoryItems) { item in
+                            HStack {
+                                Text(item.species)
+                                
+                                Spacer()
+                                
+                                Text("\(item.boardFeet, specifier: "%.2f") Board Feet")
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
     }
     
     private func calculate() async {
