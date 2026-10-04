@@ -12,7 +12,10 @@ use routes::inventory::{add_inventory, get_inventory};
 
 #[tokio::main]
 async fn main() {
-    dotenvy::dotenv().ok();
+    let path = dotenvy::dotenv()
+        .expect("Could not load .env file");
+
+    println!("Loaded env from: {}", path.display());
 
     let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL must be set");
 
