@@ -1,0 +1,12 @@
+/Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/deps/thiserror-e485fd0f4f06d790.d: /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs /Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/build/thiserror-a5933e0a1fd180cc/out/private.rs
+
+/Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/deps/libthiserror-e485fd0f4f06d790.rmeta: /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs /Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs /Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/build/thiserror-a5933e0a1fd180cc/out/private.rs
+
+/Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs:
+/Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs:
+/Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs:
+/Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs:
+/Users/instinct/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs:
+/Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/build/thiserror-a5933e0a1fd180cc/out/private.rs:
+
+# env-dep:OUT_DIR=/Users/instinct/board-footage-calculator/backend/board-footage-calculator/target/debug/build/thiserror-a5933e0a1fd180cc/out
