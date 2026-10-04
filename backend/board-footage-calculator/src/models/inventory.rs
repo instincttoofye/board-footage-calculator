@@ -13,7 +13,7 @@ pub struct Inventory {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct AddInventory {
+pub struct InventoryRequest {
     pub species: String,
     pub board_feet: Decimal,
 }

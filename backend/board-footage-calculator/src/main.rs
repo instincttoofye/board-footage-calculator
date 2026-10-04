@@ -3,12 +3,12 @@ mod routes;
 
 use axum::{
     Router,
-    routing::get
+    routing::{get, post}
 };
 
 use sqlx::postgres::PgPoolOptions;
 
-use routes::inventory::{add_inventory, get_inventory};
+use routes::inventory::{add_inventory, get_inventory, subtract_inventory};
 
 #[tokio::main]
 async fn main() {
@@ -26,12 +26,10 @@ async fn main() {
         .expect("YOU DIDNT CONNECT TO THE DB STOOPID");
 
     let app = Router::new()
-    .route(
-        "/inventory",
-        get(get_inventory)
-        .post(add_inventory),
-    )
-    .with_state(pool);
+        .route("/inventory",get(get_inventory))
+        .route("/inventory/add", post(add_inventory))
+        .route("/inventory/subtract", post(subtract_inventory))
+        .with_state(pool);
 
     let listener = tokio::net::TcpListener::bind(
         "0.0.0.0:3060",
