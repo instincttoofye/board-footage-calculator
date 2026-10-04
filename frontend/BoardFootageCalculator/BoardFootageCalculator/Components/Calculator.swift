@@ -12,6 +12,7 @@ struct Calculator: View {
     @State var thickness: Double = 0
     @State var length: Double = 0
     @State var width: Double = 0
+    @State var species: String = ""
     
    var body: some View {
        VStack {
@@ -21,8 +22,9 @@ struct Calculator: View {
            TextField("Enter length (inches)", value: $length, format: .number)
            Text("Width")
            TextField("Enter width (inches)", value: $width, format: .number)
+           Text("Enter Species")
+           TextField("Enter Species", text: $species)
            Text("Total Board Footage: \(result, specifier: "%.2f")")
-           
            Button("Calculate") {
                calculate()
            }
