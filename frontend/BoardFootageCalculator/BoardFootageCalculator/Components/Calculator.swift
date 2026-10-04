@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct Calculator: View {
-    @State var result: Double = 0
-    @State var thickness: Double = 0
-    @State var length: Double = 0
-    @State var width: Double = 0
-    @State var species: String = ""
-    @State var showInventory: Bool = false
+    @State private var result: Double = 0
+    @State private var thickness: Double = 0
+    @State private var length: Double = 0
+    @State private var width: Double = 0
+    @State private var species: String = ""
+    @State private var inventoryItems: [InventoryItem] = []
+    @State private var showInventory: Bool = false
     
    var body: some View {
        VStack {
@@ -34,6 +35,21 @@ struct Calculator: View {
            Button("Show Inventory") {
                Task {
                    await inventory()
+               }
+           }
+           if showInventory {
+               VStack {
+                   Text("Inventory")
+
+                   ForEach(inventoryItems) { item in
+                       HStack {
+                           Text(item.species)
+
+                           Spacer()
+
+                           Text("\(item.boardFeet, specifier: "%.2f") Board Feet")
+                       }
+                   }
                }
            }
        }
@@ -87,6 +103,32 @@ struct Calculator: View {
     }
     
     private func inventory() async {
-        showInventory = !showInventory
+        guard let url = URL(string: "http://localhost:3060/inventory") else {
+            return
+        }
+
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return
+            }
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("Backend error: \(httpResponse.statusCode)")
+                return
+            }
+
+            let inventory = try JSONDecoder().decode(
+                [InventoryItem].self,
+                from: data
+            )
+
+            inventoryItems = inventory
+            showInventory = !showInventory
+
+        } catch {
+            print("Failed to get inventory: \(error)")
+        }
     }
 }

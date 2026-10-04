@@ -7,6 +7,8 @@ use uuid::Uuid;
 pub struct Inventory {
     pub id: Uuid,
     pub species: String,
+
+    #[serde(with = "rust_decimal::serde::float")]
     pub board_feet: Decimal,
 }
 

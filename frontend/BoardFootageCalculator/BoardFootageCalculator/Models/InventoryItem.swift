@@ -9,5 +9,11 @@ import Foundation
 struct InventoryItem: Codable, Identifiable {
     let id: UUID
     let species: String
-    let board_feet: Double
+    let boardFeet: Double
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case species
+        case boardFeet = "board_feet"
+    }
 }
