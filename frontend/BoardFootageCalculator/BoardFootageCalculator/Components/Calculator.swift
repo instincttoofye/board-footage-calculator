@@ -92,6 +92,53 @@ struct Calculator: View {
                 
                 Button {
                     Task {
+                        await updateInventory(action: "add")
+                    }
+                } label: {
+                    Text("Add to Inventory")
+                        .font(.custom("GoodTimes-Regular", size: 18))
+                        .foregroundStyle(Color(hex: 0x9dc2a7))
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 12)
+                        .background{
+                            LinearGradient(
+                                colors: [
+                                    Color(hex: 0x3c854f),
+                                    Color(hex: 0x021407)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .buttonStyle(.plain)
+                Button {
+                    Task {
+                        await updateInventory(action: "subtract")
+                    }
+                } label: {
+                    Text("Subtract From Inventory")
+                        .font(.custom("GoodTimes-Regular", size: 18))
+                        .foregroundStyle(Color(hex: 0x9dc2a7))
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 12)
+                        .background{
+                            LinearGradient(
+                                colors: [
+                                    Color(hex: 0x3c854f),
+                                    Color(hex: 0x021407)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .buttonStyle(.plain)
+                
+                Button {
+                    Task {
                         await inventory()
                     }
                 } label: {
@@ -143,23 +190,24 @@ struct Calculator: View {
         let boardFeet = (thickness * width * length) / 144
 
         result = boardFeet
+    }
+    
+    private func updateInventory(action: String) async {
+        guard !species.isEmpty else { return }
 
-        guard !species.isEmpty else {
-            return
-        }
-
-        guard let url = URL(string: "http://localhost:3060/inventory") else {
+        guard let url = URL(
+            string: "http://localhost:3060/inventory/\(action)"
+        ) else {
             return
         }
 
         let inventory = AddInventoryRequest(
             species: species,
-            board_feet: boardFeet
+            board_feet: result
         )
 
         do {
             var request = URLRequest(url: url)
-
             request.httpMethod = "POST"
             request.setValue(
                 "application/json",
@@ -179,9 +227,9 @@ struct Calculator: View {
                 return
             }
 
-            print("Added \(boardFeet) board feet of \(species)")
+            print("\(action) \(result) board feet of \(species)")
         } catch {
-            print("Failed to add inventory: \(error)")
+            print("Failed to update inventory: \(error)")
         }
     }
     

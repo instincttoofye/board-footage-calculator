@@ -17,7 +17,13 @@ struct BoardFootageCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(
+                    minWidth: 600,
+                    idealWidth: 800,
+                    minHeight: 700,
+                    idealHeight: 1000
+                )
         }
-        .defaultSize(width: 800, height: 900)
+        .defaultSize(width: 800, height: 1000)
     }
 }
