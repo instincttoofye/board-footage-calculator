@@ -32,38 +32,63 @@ struct Calculator: View {
             VStack {
                 Text("Thickness")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                
                 TextField("Enter thickness (inches)", value: $thickness, format: .number)
+                    .font(.custom("GoodTimes-Regular", size: 18))
+                
                 Text("Length")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                
                 TextField("Enter length (inches)", value: $length, format: .number)
+                    .font(.custom("GoodTimes-Regular", size: 18))
+                
                 Text("Width")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                
                 TextField("Enter width (inches)", value: $width, format: .number)
+                    .font(.custom("GoodTimes-Regular", size: 18))
+                
                 Text("Enter Species")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                
                 TextField("Enter Species", text: $species)
+                    .font(.custom("GoodTimes-Regular", size: 18))
+                
                 Text("Total Board Footage: \(result, specifier: "%.2f")")
-                Button("Calculate") {
+                    .font(.custom("GoodTimes-Regular", size: 18))
+                
+                Button {
                     Task {
                         await calculate()
                     }
+                } label: {
+                    Text("Calculate")
+                        .font(.custom("GoodTimes-Regular", size: 18))
                 }
-                Button("Show Inventory") {
+                
+                Button {
                     Task {
                         await inventory()
                     }
+                } label: {
+                    Text("Show Inventory")
+                        .font(.custom("GoodTimes-Regular", size: 18))
                 }
+                
                 if showInventory {
                     VStack {
                         Text("Inventory")
+                            .font(.custom("GoodTimes-Regular", size: 24))
                         
                         ForEach(inventoryItems) { item in
                             HStack {
                                 Text(item.species)
+                                    .font(.custom("GoodTimes-Regular", size: 18))
                                 
                                 Spacer()
                                 
                                 Text("\(item.boardFeet, specifier: "%.2f") Board Feet")
+                                    .font(.custom("GoodTimes-Regular", size: 18))
                             }
                         }
                     }
