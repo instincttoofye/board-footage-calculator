@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EA9338B33071F0C0008BBD6E /* Good Times Rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9338B23071F0C0008BBD6E /* Good Times Rg.otf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EA38CAED3071D43C00CBD901 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +31,25 @@
 		EA38CADB3071D43B00CBD901 /* BoardFootageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardFootageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA38CAEC3071D43C00CBD901 /* BoardFootageCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardFootageCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA38CAF63071D43C00CBD901 /* BoardFootageCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardFootageCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9338B23071F0C0008BBD6E /* Good Times Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good Times Rg.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EA9338B53071F0D2008BBD6E /* Exceptions for "BoardFootageCalculator" folder in "BoardFootageCalculator" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EA38CADA3071D43B00CBD901 /* BoardFootageCalculator */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EA38CADD3071D43B00CBD901 /* BoardFootageCalculator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EA9338B53071F0D2008BBD6E /* Exceptions for "BoardFootageCalculator" folder in "BoardFootageCalculator" target */,
+			);
 			path = BoardFootageCalculator;
 			sourceTree = "<group>";
 		};
@@ -79,6 +97,7 @@
 				EA38CAEF3071D43C00CBD901 /* BoardFootageCalculatorTests */,
 				EA38CAF93071D43C00CBD901 /* BoardFootageCalculatorUITests */,
 				EA38CADC3071D43B00CBD901 /* Products */,
+				EA9338B23071F0C0008BBD6E /* Good Times Rg.otf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA9338B33071F0C0008BBD6E /* Good Times Rg.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +421,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoardFootageCalculator/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,6 +449,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoardFootageCalculator/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

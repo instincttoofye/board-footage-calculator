@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct Calculator: View {
     @State private var result: Double = 0
     @State private var thickness: Double = 0
@@ -30,12 +31,16 @@ struct Calculator: View {
             
             VStack {
                 Text("Thickness")
+                    .font(.custom("GoodTimes-Regular", size: 24))
                 TextField("Enter thickness (inches)", value: $thickness, format: .number)
                 Text("Length")
+                    .font(.custom("GoodTimes-Regular", size: 24))
                 TextField("Enter length (inches)", value: $length, format: .number)
                 Text("Width")
+                    .font(.custom("GoodTimes-Regular", size: 24))
                 TextField("Enter width (inches)", value: $width, format: .number)
                 Text("Enter Species")
+                    .font(.custom("GoodTimes-Regular", size: 24))
                 TextField("Enter Species", text: $species)
                 Text("Total Board Footage: \(result, specifier: "%.2f")")
                 Button("Calculate") {
@@ -64,7 +69,6 @@ struct Calculator: View {
                     }
                 }
             }
-            
         }
     }
     
