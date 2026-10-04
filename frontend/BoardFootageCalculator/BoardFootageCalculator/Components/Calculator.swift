@@ -32,30 +32,39 @@ struct Calculator: View {
             VStack {
                 Text("Thickness")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 TextField("Enter thickness (inches)", value: $thickness, format: .number)
                     .font(.custom("GoodTimes-Regular", size: 18))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 Text("Length")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 TextField("Enter length (inches)", value: $length, format: .number)
                     .font(.custom("GoodTimes-Regular", size: 18))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 Text("Width")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 TextField("Enter width (inches)", value: $width, format: .number)
                     .font(.custom("GoodTimes-Regular", size: 18))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 Text("Enter Species")
                     .font(.custom("GoodTimes-Regular", size: 24))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 TextField("Enter Species", text: $species)
                     .font(.custom("GoodTimes-Regular", size: 18))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 Text("Total Board Footage: \(result, specifier: "%.2f")")
                     .font(.custom("GoodTimes-Regular", size: 18))
+                    .foregroundStyle(Color(hex: 0x85b391))
                 
                 Button {
                     Task {
@@ -64,7 +73,22 @@ struct Calculator: View {
                 } label: {
                     Text("Calculate")
                         .font(.custom("GoodTimes-Regular", size: 18))
+                        .foregroundStyle(Color(hex: 0x9dc2a7))
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 12)
+                        .background{
+                            LinearGradient(
+                                colors: [
+                                    Color(hex: 0x3c854f),
+                                    Color(hex: 0x021407)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .buttonStyle(.plain)
                 
                 Button {
                     Task {
@@ -73,22 +97,40 @@ struct Calculator: View {
                 } label: {
                     Text("Show Inventory")
                         .font(.custom("GoodTimes-Regular", size: 18))
+                        .foregroundStyle(Color(hex: 0x9dc2a7))
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 12)
+                        .background{
+                            LinearGradient(
+                                colors: [
+                                    Color(hex: 0x3c854f),
+                                    Color(hex: 0x021407)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .buttonStyle(.plain)
                 
                 if showInventory {
                     VStack {
                         Text("Inventory")
                             .font(.custom("GoodTimes-Regular", size: 24))
+                            .foregroundStyle(Color(hex: 0xb6d1bd))
                         
                         ForEach(inventoryItems) { item in
                             HStack {
                                 Text(item.species)
                                     .font(.custom("GoodTimes-Regular", size: 18))
+                                    .foregroundStyle(Color(hex: 0xb6d1bd))
                                 
                                 Spacer()
                                 
                                 Text("\(item.boardFeet, specifier: "%.2f") Board Feet")
                                     .font(.custom("GoodTimes-Regular", size: 18))
+                                    .foregroundStyle(Color(hex: 0xb6d1bd))
                             }
                         }
                     }
